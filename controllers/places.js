@@ -1,28 +1,24 @@
 const router = require("express").Router();
+const places = require('../models/places-array.js')
 
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
+router.post("/", (req, res) => {
+  if(!req.body.pic) {
+    req.body.pic = '/images/NIA.jpg'}
+  if(!req.body.city) {
+    req.body.city = 'Whoville'
+  }
+  if(!req.body.state) {
+    req.body.state = 'USA'
+  }
+  places.push(req.body)
+  res.redirect('/places')
+})
 
 router.get("/", (req, res) => {
-  let places = [
-    {
-      name: "H-Thai-ML",
-      city: "Seattle",
-      state: "WA",
-      cuisines: "Thai, Pan-Asian",
-      pic: "/images/H-Thai-ML.jpg",
-    },
-    {
-      name: "Coding Cat Cafe",
-      city: "Phoenix",
-      state: "AZ",
-      cuisines: "Coffee, Bakery",
-      pic: "/images/coding-cat-cafe.jpg",
-    },
-  ];
-
   res.render("places/index", { places });
 });
 
