@@ -5,44 +5,60 @@ function home() {
   return (
     <Def>
       <main>
-        <div id="home" className="d-flex justify-content-center">
-          <h1
-            id="home-text"
-            className="z-3 position-absolute d-inline-flex p-2 align-self-top"
-          >
-            RestRANT
-          </h1>
-          <img
-            src="/images/table.jpg"
-            alt="Restaurant Review"
-            id="home-image"
-          />
-          <div id="photo-credit" className="d-inline-flex p-2 align-self-end">
-            Photo by
-            <a
-              className="text-decoration-none"
-              href="https://unsplash.com/@luisabrimble?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-            >
-              Luisa Brimble
-            </a>
-            on
-            <a
-              className="text-decoration-none"
-              href="https://unsplash.com/photos/aFzg83dvnAI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-            >
-              Unsplash
-            </a>
+        <div id="home" className="d-flex flex-column">
+          <div id="home-intro" className="position-absolute mt-5 text-light">
+            <h1 id="home-text" className="display-1">
+              RestRANT
+            </h1>
+            <div className="py-5">
+              <figure className="text-center">
+                <blockquote className="blockquote fst-italic">
+                  <p>
+                    "Your one-stop-site for the best and worst restaurants
+                    anywhere."
+                  </p>
+                </blockquote>
+                <figcaption className="blockquote-footer text-light">
+                  Someone very important and credible
+                </figcaption>
+              </figure>
+            </div>
+            <div className="px-5">
+              <h3>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum,
+                aperiam sed. Facilis totam eveniet, expedita vitae deserunt
+                cumque voluptatum odit id est laudantium eum ad perferendis
+                impedit, nobis, nisi sequi.
+              </h3>
+            </div>
           </div>
-          {/* <div id="places-button">
-            <a href="/places">
-              <button
-                className="btn btn-light btn-lg shadow position-absolute top-50 start-50 translate-middle-x p-5"
-                type="button"
+          <div className="position-relative d-flex flex-column">
+            <div
+              id="photo-credit"
+              className="p-1 position-absolute bottom-0 start-50 translate-middle-x"
+            >
+              Photo by{" "}
+              <a
+                className="text-decoration-none"
+                href="https://unsplash.com/@luisabrimble?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
               >
-                Places Page
-              </button>
-            </a>
-          </div> */}
+                Luisa Brimble
+              </a>{" "}
+              on{" "}
+              <a
+                className="text-decoration-none"
+                href="https://unsplash.com/photos/aFzg83dvnAI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              >
+                Unsplash
+              </a>
+            </div>
+            <img
+              src="/images/table.jpg"
+              alt="Restaurant Review"
+              id="home-image"
+              className="z-n1"
+            />
+          </div>
         </div>
       </main>
     </Def>
