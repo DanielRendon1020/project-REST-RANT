@@ -1,5 +1,9 @@
 body {
-    background-color: gray;
+    background-color: rgb(67, 67, 67);
+}
+
+.nav-item {
+    transition: all .2s ease-in-out;
 }
 
 .nav-item:hover {
@@ -17,6 +21,10 @@ body {
     width: 100%;
     height: auto;
     filter: brightness(70%);
+}
+
+#places {
+    animation: fadeinBottom 1s;
 }
 
 #places-button {
@@ -49,7 +57,7 @@ body {
     flex-shrink: 0;
     width: 400px;
     height: 400px;
-    filter: blur(10px) brightness(90%);
+    filter: blur(10px) brightness(80%);
     z-index: 2;
 }
 
@@ -59,7 +67,20 @@ body {
     height: auto;
     border-radius: 1rem;
     filter: drop-shadow(0 0 0.75rem black);
+    transition: all .2s ease-in-out;
     z-index: 3;
+}
+
+#img-resize:hover {
+    transform: scale(1.1);
+}
+
+#form {
+    animation: fadeinBottom 1s;
+}
+
+#form form {
+    width: 50vw;
 }
 
 @keyframes fadeinBottom {

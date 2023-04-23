@@ -5,13 +5,9 @@ function error404() {
   return (
     <Def>
       <main className="d-flex flex-column justify-content-center align-items-center">
-        <h1 className="my-5 display-1">Oops! There's nothing here.</h1>
-
-        <a href="/places">
-          <button className="my-3 btn btn-outline-light btn-lg">
-            Take me back
-          </button>
-        </a>
+        <h1 className="my-5 display-1 text-light">
+          Oops! There's nothing here.
+        </h1>
 
         <div>
           <img
