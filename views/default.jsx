@@ -15,7 +15,7 @@ function Def(html) {
         <nav>
           <ul className="nav justify-content-center">
             <li className="nav-item">
-              <a className="nav-link text-light fs-2 mx-2 link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="/">
+              <a className="nav-link text-light fs-2 mx-2" href="/">
                 RestRANT
               </a>
             </li>

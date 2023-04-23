@@ -42,7 +42,7 @@ body {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-#img-container {
+#img-container, #img-container a {
     width: 400px;
     height: 400px;
     border-radius: 2rem;
@@ -50,6 +50,11 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+
+#img-container a {
+    position: absolute;
+    margin: 0;
 }
 
 #img-background {
@@ -81,6 +86,10 @@ body {
 
 #form form {
     width: 50vw;
+}
+
+#show {
+    animation: fadeinBottom 1s;
 }
 
 @keyframes fadeinBottom {
