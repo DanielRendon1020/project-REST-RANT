@@ -5,13 +5,13 @@ function home() {
   return (
     <Def>
       <main>
-        <h1
-          id="home-text"
-          className="position-absolute top-0 start-50 translate-middle-x p-5"
-        >
-          RestRANT
-        </h1>
         <div id="home" className="d-flex justify-content-center">
+          <h1
+            id="home-text"
+            className="z-3 position-absolute d-inline-flex p-2 align-self-top"
+          >
+            RestRANT
+          </h1>
           <img
             src="/images/table.jpg"
             alt="Restaurant Review"
@@ -33,7 +33,7 @@ function home() {
               Unsplash
             </a>
           </div>
-          <div id="places-button">
+          {/* <div id="places-button">
             <a href="/places">
               <button
                 className="btn btn-light btn-lg shadow position-absolute top-50 start-50 translate-middle-x p-5"
@@ -42,7 +42,7 @@ function home() {
                 Places Page
               </button>
             </a>
-          </div>
+          </div> */}
         </div>
       </main>
     </Def>
