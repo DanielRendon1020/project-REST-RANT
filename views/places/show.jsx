@@ -10,12 +10,26 @@ function show(data) {
           id="show-img"
           className="d-flex flex-column m-3 position-relative top-0 start-50 translate-middle-x"
         >
-          <div>
-            <i className="bi bi-star fs-4 text-light p-1"></i>
-            <i className="bi bi-star fs-4 text-light p-1"></i>
-            <i className="bi bi-star fs-4 text-light p-1"></i>
-            <i className="bi bi-star fs-4 text-light p-1"></i>
-            <i className="bi bi-star fs-4 text-light p-1"></i>
+          {/* Star Rating */}
+          <div className="d-flex justify-content-between">
+            <div>
+              <i className="bi bi-star fs-4 text-light p-1"></i>
+              <i className="bi bi-star fs-4 text-light p-1"></i>
+              <i className="bi bi-star fs-4 text-light p-1"></i>
+              <i className="bi bi-star fs-4 text-light p-1"></i>
+              <i className="bi bi-star fs-4 text-light p-1"></i>
+            </div>
+            {/* Edit and delete buttons */}
+            <div className="d-inline-flex">
+              <a className="m-2" href={`/places/${data.id}/edit`}>
+                <i className="bi bi-pencil-square fs-4 text-light"></i>
+              </a>
+              <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
+                <button type="submit" className="btn p-0 m-2">
+                  <i className="bi bi-trash3-fill fs-4 text-light"></i>
+                </button>
+              </form>
+            </div>
           </div>
           <img
             className="rounded-5 mt-2"
