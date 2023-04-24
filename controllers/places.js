@@ -1,52 +1,83 @@
 const router = require("express").Router();
-const places = require('../models/places-array.js')
+const places = require("../models/places-array.js");
 
-router.get('/new', (req, res) => {
-  res.render('places/new')
-})
+router.get("/new", (req, res) => {
+  res.render("places/new");
+});
 
-// Adding place
+// Adding place and defaults
 router.post("/", (req, res) => {
-  if(!req.body.pic) {
-    req.body.pic = '/images/NIA.jpg'}
-  if(!req.body.city) {
-    req.body.city = 'Whoville'
+  if (!req.body.pic) {
+    req.body.pic = "/images/NIA.jpg";
   }
-  if(!req.body.state) {
-    req.body.state = 'USA'
+  if (!req.body.city) {
+    req.body.city = "Whoville";
   }
-  places.push(req.body)
-  res.redirect('/places')
-})
+  if (!req.body.state) {
+    req.body.state = "USA";
+  }
+  places.push(req.body);
+  res.redirect("/places");
+});
 
-// Show
-router.get('/:id', (req, res) => {
-  let id = Number(req.params.id)
-  if(isNaN(id)) {
-    res.render('error404')
+// Update and defaults
+router.put("/:id", (req, res) => {
+  let id = Number(req.params.id);
+  if (isNaN(id)) {
+    res.render("error404");
+  } else if (!places[id]) {
+    res.render("error404");
+  } else {
+    if (!req.body.pic) {
+      req.body.pic = "/images/NIA.jpg";
+    }
+    if (!req.body.city) {
+      req.body.city = "Whoville";
+    }
+    if (!req.body.state) {
+      req.body.state = "USA";
+    }
+    places[id] = req.body;
+    res.redirect(`/places/${id}`);
   }
-  else if(!places[id]) {
-    res.render('error404')
+});
+
+// Edit
+router.get("/:id/edit", (req, res) => {
+  let id = Number(req.params.id);
+  if (isNaN(id)) {
+    res.render("error404");
+  } else if (!places[id]) {
+    res.render("error404");
+  } else {
+    res.render("places/edit", { place: places[id], id });
   }
-  else{
-    res.render('places/show', {place: places[id], id})
-  }
-})
+});
 
 // Delete
-router.delete('/:id', (req,res) => {
-  let id = Number(req.params.id)
-  if(isNaN(id)) {
-    res.render('error404')
+router.delete("/:id", (req, res) => {
+  let id = Number(req.params.id);
+  if (isNaN(id)) {
+    res.render("error404");
+  } else if (!places[id]) {
+    res.render("error404");
+  } else {
+    places.splice(id, 1);
+    res.redirect("/places");
   }
-  else if(!places[id]) {
-    res.render('error404')
+});
+
+// Show
+router.get("/:id", (req, res) => {
+  let id = Number(req.params.id);
+  if (isNaN(id)) {
+    res.render("error404");
+  } else if (!places[id]) {
+    res.render("error404");
+  } else {
+    res.render("places/show", { place: places[id], id });
   }
-  else {
-    places.splice(id, 1)
-    res.redirect('/places')
-  }
-})
+});
 
 router.get("/", (req, res) => {
   res.render("places/index", { places });
