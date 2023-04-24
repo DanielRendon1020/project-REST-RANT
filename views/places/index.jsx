@@ -4,7 +4,7 @@ const Def = require("../default");
 function index(data) {
   let placesFormatted = data.places.map((place, index) => {
     return (
-      <div className="d-flex flex-sm-column p-5">
+      <div className="d-flex flex-column p-5">
         <h2 className="text-center p-2 text-light">{place.name}</h2>
         <p className="text-center p-2 text-light">{place.cuisines}</p>
         <div id="img-container">
@@ -23,7 +23,7 @@ function index(data) {
     <Def>
       <main id="places">
         <h1 className="text-light ms-5">Places to Rant or Rave About</h1>
-        <div className="d-flex justify-content-center">{placesFormatted}</div>
+        <div className="d-flex flex-wrap justify-content-evenly">{placesFormatted}</div>
       </main>
     </Def>
   );

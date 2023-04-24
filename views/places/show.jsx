@@ -11,7 +11,7 @@ function show(data) {
           className="d-flex flex-column m-3 position-relative top-0 start-50 translate-middle-x"
         >
           {/* Star Rating */}
-          <div className="d-flex justify-content-between">
+          <div className="d-flex flex-wrap justify-content-between">
             <div>
               <i className="bi bi-star fs-4 text-light p-1"></i>
               <i className="bi bi-star fs-4 text-light p-1"></i>
