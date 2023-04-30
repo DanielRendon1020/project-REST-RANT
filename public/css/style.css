@@ -2,16 +2,21 @@ body {
     background-color: rgb(67, 67, 67);
 }
 
-.nav-item {
+.nav-item,
+#edit-button,
+#delete-button {
     transition: all .2s ease-in-out;
 }
 
-.nav-item:hover {
+.nav-item:hover,
+#edit-button:hover,
+#delete-button:hover {
     text-shadow: 0 0 10px white;
 }
 
+
 #home-intro {
-    text-shadow: 0 0 10px black;
+    text-shadow: 0 0 10px black, 0 0 15px black, 0 0 20px black;
     animation: fadeinBottom 1s;
 }
 
@@ -63,8 +68,9 @@ body {
 
 #img-resize {
     position: absolute;
+    object-fit: cover;
     width: 300px;
-    height: auto;
+    height: 300px;
     border-radius: 1rem;
     filter: drop-shadow(0 0 0.75rem black);
     transition: all .2s ease-in-out;

@@ -3,10 +3,14 @@ const Def = require("../default");
 
 function new_form() {
   return (
-    <Def>
+    <Def title="Add new Place">
       <main id="form">
         <h1 className="text-light ms-5">Add a New Place</h1>
-        <form method="POST" action="/places" className="position-relative top-0 start-50 translate-middle-x px-5 py-3">
+        <form
+          method="POST"
+          action="/places"
+          className="position-relative top-0 start-50 translate-middle-x px-5 py-3"
+        >
           <div className="form-floating mb-2">
             <input
               className="form-control"
@@ -108,6 +112,17 @@ function new_form() {
             />
             <label htmlFor="cuisines">Cuisines*</label>
           </div>
+          <div className="form-floating mb-2">
+            <input
+              className="form-control"
+              type="number"
+              id="founded"
+              name="founded"
+              placeholder="Founded Year"
+            />
+            <label htmlFor="founded">Founded Year</label>
+          </div>
+
           <input
             className="btn btn-primary mt-2"
             type="submit"

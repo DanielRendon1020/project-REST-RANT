@@ -3,7 +3,7 @@ const Def = require("./default");
 
 function home() {
   return (
-    <Def>
+    <Def title="RestRant">
       <main>
         <div id="home" className="d-flex flex-column">
           <div id="home-intro" className="position-absolute mt-5 text-light">

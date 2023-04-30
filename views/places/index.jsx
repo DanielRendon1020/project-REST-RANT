@@ -2,14 +2,14 @@ const React = require("react");
 const Def = require("../default");
 
 function index(data) {
-  let placesFormatted = data.places.map((place, index) => {
+  let placesFormatted = data.places.map(place => {
     return (
       <div className="d-flex flex-column p-5">
         <h2 className="text-center p-2 text-light">{place.name}</h2>
         <p className="text-center p-2 text-light">{place.cuisines}</p>
         <div id="img-container">
           <img id="img-background" src={place.pic} alt={place.name} />
-          <a href={`/places/${index}`}>
+          <a href={`/places/${place.id}`}>
             <img id="img-resize" src={place.pic} alt={place.name} />
           </a>
         </div>
@@ -20,7 +20,7 @@ function index(data) {
     );
   });
   return (
-    <Def>
+    <Def title='Rant or Rave'>
       <main id="places">
         <h1 className="text-light ms-5">Places to Rant or Rave About</h1>
         <div className="d-flex flex-wrap justify-content-evenly">{placesFormatted}</div>
@@ -28,5 +28,6 @@ function index(data) {
     </Def>
   );
 }
+
 
 module.exports = index;

@@ -1,9 +1,9 @@
 const React = require("react");
 const Def = require("../default.jsx");
 
-function edit_form(data) {
+function edit_form({ data, title }) {
   return (
-    <Def>
+    <Def title={title}>
       <main id="form">
         <h1 className="text-light ms-5">Add a New Place</h1>
         <form
@@ -27,7 +27,7 @@ function edit_form(data) {
             {/* <label htmlFor="pic">Place Picture</label> */}
             <input
               className="form-control"
-            //   type="url"
+              //   type="url"
               id="pic"
               name="pic"
               placeholder="Place Picture"

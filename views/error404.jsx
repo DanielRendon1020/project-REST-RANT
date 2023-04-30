@@ -3,7 +3,7 @@ const Def = require("./default");
 
 function error404() {
   return (
-    <Def>
+    <Def title="404">
       <main className="d-flex flex-column justify-content-center align-items-center">
         <h1 className="my-5 display-1 text-light">
           Oops! There's nothing here.
