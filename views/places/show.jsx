@@ -37,9 +37,10 @@ function show({ place, title }) {
             alt={place.name}
           />
           <p className="text-light fs-3 my-3">
-            Located in {place.city}, {place.state},{" "}
+            {place.showEstablished()}
+            {/* Located in {place.city}, {place.state},{" "}
             <span className="fw-bold">{place.name}</span> is serving up{" "}
-            {place.cuisines}.
+            {place.cuisines}. */}
           </p>
           <h4 className="text-light display-4 mt-5">Comments:</h4>
           <p className="text-light">No comments yet.</p>

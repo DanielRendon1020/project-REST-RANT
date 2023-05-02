@@ -1,7 +1,16 @@
 const React = require("react");
 const Def = require("../default");
 
-function new_form() {
+function new_form(data) {
+  let message = ''
+    if(data.message) {
+      message = (
+        <div className="alert alert-danger">
+          {data.message}
+        </div>
+      )
+    }
+
   return (
     <Def title="Add new Place">
       <main id="form">
@@ -9,8 +18,9 @@ function new_form() {
         <form
           method="POST"
           action="/places"
-          className="position-relative top-0 start-50 translate-middle-x px-5 py-3"
+          className="position-relative top-0 start-50 translate-middle-x px-5 py-3 text-dark"
         >
+          {message}
           <div className="form-floating mb-2">
             <input
               className="form-control"
@@ -26,7 +36,7 @@ function new_form() {
             {/* <label htmlFor="pic">Place Picture</label> */}
             <input
               className="form-control"
-              type="url"
+              // type="url"
               id="pic"
               name="pic"
               placeholder="Place Picture"
@@ -119,6 +129,7 @@ function new_form() {
               id="founded"
               name="founded"
               placeholder="Founded Year"
+              value={new Date().getFullYear()}
             />
             <label htmlFor="founded">Founded Year</label>
           </div>
