@@ -37,8 +37,7 @@ router.post("/", (req, res) => {
           message += `${err.errors[field].message}`
         }
         console.log('Validation error message', message)
-        res.render('places/new', {message})
-      }
+        res.render('places/new', {message})}
       else{
         res.render("error404");
       }

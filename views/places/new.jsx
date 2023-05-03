@@ -129,7 +129,7 @@ function new_form(data) {
               id="founded"
               name="founded"
               placeholder="Founded Year"
-              value={new Date().getFullYear()}
+              defaultValue={new Date().getFullYear()}
             />
             <label htmlFor="founded">Founded Year</label>
           </div>
