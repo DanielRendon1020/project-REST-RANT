@@ -1,16 +1,17 @@
 const db = require('../models')
 
 async function seed() {
-    // Get the place, H-Thai-ML
+    // Get the place
     let place = await db.Place.findOne({ name: 'H-Thai-ML' })
 
     // Create a fake sample comment.
     let comment = await db.Comment.create({
-        author: 'Famished Fran',
+        author: 'Ned Niles',
         rant: false,
         stars: 5.0,
-        content: 'Wow, simply amazing! Highly recommended!'
+        content: 'The curry was so good, it made me want to hug the chef and propose marriage on the spot.'
     })
+
 
     // Add that comment to the place's comment array.
     place.comments.push(comment.id)

@@ -1,10 +1,32 @@
 const React = require("react");
 const Def = require("../default");
 
+function renderStars(stars) {
+  const filledStars = stars;
+  const emptyStars = 5 - filledStars;
+
+  const filledStar = <i className="bi bi-star-fill fs-4 text-light p-1"></i>;
+  const emptyStar = <i className="bi bi-star fs-4 text-light p-1"></i>;
+
+  const starArray = [];
+
+  for (let i = 0; i < filledStars; i++) {
+    starArray.push(filledStar);
+  }
+
+  for (let i = 0; i < emptyStars; i++) {
+    starArray.push(emptyStar);
+  }
+
+  return starArray;
+}
+
 function show(data) {
+  let totalStars = 0
   let comments = <p className="text-light">No comments yet.</p>;
   if (data.place.comments.length) {
     comments = data.place.comments.map((c) => {
+      totalStars += c.stars
       return (
         <div className="text-light mt-3 p-3">
           <h4 className="display-6">
@@ -12,11 +34,14 @@ function show(data) {
           </h4>
           <hr />
           <p>{c.content}</p>
-          <h4>Rating: {c.stars}</h4>
+          <h4>Rating: {renderStars(c.stars)}</h4>
         </div>
       );
     });
   }
+  const averageRating = data.place.comments.length
+    ? Math.round(totalStars / data.place.comments.length)
+    : 0
   return (
     <Def title={data.title}>
       <main id="show">
@@ -28,11 +53,7 @@ function show(data) {
           {/* Star Rating */}
           <div className="d-flex flex-wrap justify-content-between">
             <div>
-              <i className="bi bi-star fs-4 text-light p-1"></i>
-              <i className="bi bi-star fs-4 text-light p-1"></i>
-              <i className="bi bi-star fs-4 text-light p-1"></i>
-              <i className="bi bi-star fs-4 text-light p-1"></i>
-              <i className="bi bi-star fs-4 text-light p-1"></i>
+              <h4>{renderStars(averageRating)}</h4>
             </div>
             {/* Edit and delete buttons */}
             <div className="d-inline-flex">
