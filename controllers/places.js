@@ -71,7 +71,9 @@ router.delete("/:id/rant/:rantId", (req, res) => {
 //    Show
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
+  .populate('comments')
   .then(foundPlace => {
+    console.log(foundPlace.comments)
       res.render('places/show', { 
         place: foundPlace,
         title: foundPlace.name})
