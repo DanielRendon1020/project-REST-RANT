@@ -22,26 +22,29 @@ function renderStars(stars) {
 }
 
 function show(data) {
-  let totalStars = 0
+  let totalStars = 0;
   let comments = <p className="text-light">No comments yet.</p>;
   if (data.place.comments.length) {
     comments = data.place.comments.map((c) => {
-      totalStars += c.stars
+      totalStars += c.stars;
       return (
         <div className="text-light mt-3 p-3">
-          <h4 className="display-6">
+          <div className="d-flex justify-content-between align-items-center">
+            <h4 className="display-6">
             {c.author}'s {c.rant ? "Rant! 🤬" : "Rave! 😻"}
           </h4>
+          <h4 className="">{renderStars(c.stars)}</h4>
+          </div>
+
           <hr />
           <p>{c.content}</p>
-          <h4>Rating: {renderStars(c.stars)}</h4>
         </div>
       );
     });
   }
   const averageRating = data.place.comments.length
     ? Math.round(totalStars / data.place.comments.length)
-    : 0
+    : 0;
   return (
     <Def title={data.title}>
       <main id="show">
@@ -88,16 +91,94 @@ function show(data) {
             {place.cuisines}. */}
           </p>
           <h4 className="text-light display-4 mt-5">Comments:</h4>
-          {comments}
-          {/* <div className="form-floating">
+          {/* <form
+          method="POST"
+          action="/places"
+          className=""
+        ></form>
+          <div className="form-floating">
             <textarea
               className="form-control"
               placeholder="Leave a comment here"
               id="comments"
               style={{height: '100px'}}
             ></textarea>
-            <label htmlFor="comments">Comments</label>
+            <label htmlFor="comments">Comment</label>
+            {comments}
           </div> */}
+          <form method="POST" action={`/places/${data.place.id}/comment`} className=" text-light">
+            <div className="mb-3">
+              <label htmlFor="author" className="form-label">
+                Reviewer:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="reviewer"
+                name="author"
+                placeholder="Your Name"
+              ></input>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="stars" className="form-label">
+                Rating:
+              </label>
+              <input
+                type="range"
+                className="form-range"
+                min="0"
+                max="5"
+                id="rating"
+                name="stars"
+                required
+              ></input>
+            </div>
+            <div className="mb-3 d-flex justify-content-evenly">
+              <span className="px-2">
+                <input
+                type="radio"
+                  className="btn-check"
+                  id="rant"
+                  name="rant"
+                  autoComplete="off"
+                  value='on'
+                ></input>
+                <label className="btn btn-lg btn-outline-danger" htmlFor="rant">
+                  Rant
+                </label>
+              </span>
+              <span className="px-2">
+                <input
+                  type="radio"
+                  className="btn-check"
+                  id="rave"
+                  name="rant"
+                  autoComplete="off"
+                  value='off'
+                  defaultChecked
+                ></input>
+                <label className="btn btn-lg btn-outline-primary" htmlFor="rave">
+                  Rave
+                </label>
+              </span>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="content" className="form-label">
+                Comment:
+              </label>
+              <textarea
+                className="form-control"
+                id="comment"
+                name="content"
+                rows="3"
+                placeholder="Your Thoughts"
+              ></textarea>
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+          {comments}
         </div>
       </main>
     </Def>
