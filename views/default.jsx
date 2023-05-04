@@ -14,6 +14,7 @@ function Def(html) {
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
         ></link>
         <link rel="stylesheet" href="/css/style.css" />
+        <link rel="shortvut icon" type="image/svg" href="/images/rest-rant.svg" />
       </head>
       <body>
         <nav>
