@@ -1,7 +1,11 @@
 const React = require("react");
 const Def = require("../default");
 
-function renderStars(stars) {
+function renderStars(stars, forAvg) {
+  if(stars === 0 && forAvg === true){
+    return <p className="text-light">Not yet rated</p>
+  }
+
   const filledStars = stars;
   const emptyStars = 5 - filledStars;
 
@@ -23,17 +27,17 @@ function renderStars(stars) {
 
 function show(data) {
   let totalStars = 0;
-  let comments = <p className="text-light">No comments yet.</p>;
+  let comments = <p className="text-light mt-5">No comments yet.</p>;
   if (data.place.comments.length) {
     comments = data.place.comments.map((c) => {
       totalStars += c.stars;
       return (
-        <div className="text-light mt-3 p-3">
+        <div className="text-light mt-5 p-3">
           <div className="d-flex justify-content-between align-items-center">
             <h4 className="display-6">
             {c.author}'s {c.rant ? "Rant! 🤬" : "Rave! 😻"}
           </h4>
-          <h4 className="">{renderStars(c.stars)}</h4>
+          <h4 className="">{renderStars(c.stars, false)}</h4>
           </div>
 
           <hr />
@@ -56,7 +60,7 @@ function show(data) {
           {/* Star Rating */}
           <div className="d-flex flex-wrap justify-content-between">
             <div>
-              <h4>{renderStars(averageRating)}</h4>
+              <h4>{renderStars(averageRating, true)}</h4>
             </div>
             {/* Edit and delete buttons */}
             <div className="d-inline-flex">
