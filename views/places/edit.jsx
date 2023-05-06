@@ -1,14 +1,14 @@
 const React = require("react");
 const Def = require("../default.jsx");
 
-function edit_form({ data, title }) {
+function edit_form({ place, title }) {
   return (
     <Def title={title}>
       <main id="form">
         <h1 className="text-light ms-5">Add a New Place</h1>
         <form
           method="POST"
-          action={`/places/${data.id}?_method=PUT`}
+          action={`/places/${place.id}?_method=PUT`}
           className="position-relative top-0 start-50 translate-middle-x px-5 py-3"
         >
           <div className="form-floating mb-2">
@@ -17,7 +17,7 @@ function edit_form({ data, title }) {
               id="name"
               name="name"
               placeholder="Place Name*"
-              value={data.place.name}
+              value={place.name}
               required
             />
             <label htmlFor="name">Place Name*</label>
@@ -31,7 +31,7 @@ function edit_form({ data, title }) {
               id="pic"
               name="pic"
               placeholder="Place Picture"
-              value={data.place.pic}
+              value={place.pic}
             />
           </div>
           <div className="form-floating mb-2">
@@ -40,7 +40,7 @@ function edit_form({ data, title }) {
               id="city"
               name="city"
               placeholder="City"
-              value={data.place.city}
+              value={place.city}
             />
             <label htmlFor="city">City</label>
           </div>
@@ -51,7 +51,7 @@ function edit_form({ data, title }) {
               id="state"
               name="state"
               placeholder="State"
-              value={data.place.state}
+              value={place.state}
             />
             <label htmlFor="state">State</label>
             <datalist id="state-list">
@@ -112,10 +112,21 @@ function edit_form({ data, title }) {
               id="cuisines"
               name="cuisines"
               placeholder="Cuisines*"
-              value={data.place.cuisines}
+              value={place.cuisines}
               required
             />
             <label htmlFor="cuisines">Cuisines*</label>
+          </div>
+          <div className="form-floating mb-2">
+            <input
+              className="form-control"
+              type="number"
+              id="founded"
+              name="founded"
+              placeholder="Founded Year"
+              defaultValue={place.founded}
+            />
+            <label htmlFor="founded">Founded Year</label>
           </div>
           <input
             className="btn btn-primary mt-2"
