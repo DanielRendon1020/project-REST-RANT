@@ -12,7 +12,7 @@ app.use(methodOverride('_method'))
 
 
 //Controllers and Routes
-app.use('/places', require('./controllers/places'))
+app.use('/places', require('../controllers/places'))
 
 app.get('/', (req, res) => {
     res.render('home')
